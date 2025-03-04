@@ -60,7 +60,7 @@ async function databaseGET(req) {
 }
 
 async function databasePUT(req) {
-  try {const response = await fetch('/api/database?', {
+  try {const response = await fetch('/api/database/preferences?', {
     method: "PUT",
     headers: {
       'Content-Type': 'application/json',
