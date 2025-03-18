@@ -54,6 +54,19 @@ export default function Home() {
   const [emailInput, setEmailInput] = useState('');
   const [phoneInput, setPhoneInput] = useState('');
   const [open, setOpen] = useState(false);
+
+  if (status === "loading") {
+    return <div>Loading...</div>;
+  }
+
+  if (status === "unauthenticated") {
+    return(
+      <>
+      Not signed in <br/>
+      <button onClick={() => signIn()}>Sign in</button>
+      </>
+    )
+  }
   
   const handleEmailInputChange = (e) => {
     setEmailInput(e.target.value);
@@ -81,19 +94,6 @@ export default function Home() {
   };
 
   const handleClose = async () => setOpen(false);
-
-  if (status === "loading") {
-    return <div>Loading...</div>;
-  }
-
-  if (status === "unauthenticated") {
-    return(
-      <>
-      Not signed in <br/>
-      <button onClick={() => signIn()}>Sign in</button>
-      </>
-    )
-  }
 
   const handleSave = async () => {
     
